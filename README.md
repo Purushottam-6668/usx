@@ -5,11 +5,14 @@
 These Userbot is specially Maded  For Team Admin + owners Of Librarian <b>
 
 [📚Team Librarian™️](https://t.me/Team_Librarian)
+a
+<h2 align="center"><b>Owner: <a href="https://telegram.dog/Team_Librarian">⎠⎠Team Librarian⎠⎠ ░/a></b></h2>
 
-<h2 align="center"><b>Owner href="https://telegram.dog/Team_Librarian">꧁TEAM LIBRARIAN📚™️꧂/a></b></h2>
 <br>
+
 <p align="center">
-   <a href="https://github.com/code-rgb/USERGE-X"><img src="https://media.giphy.com/media/E2TzDxzrWXLDG/giphy.gif" alt="TEAM-LIBRARIAN" width=400px></a>
+<p align="center">
+   <a href="https://github.com/PURHSHOTTAM/TEAM-LIBRARIAN"><img src="https://giphy.com/gifs/BuZykpyfhQRaSLl6DV" alt="TEAM-LIBRARIAN" width=400px></a>
    <br>
    <br>
 </p>
