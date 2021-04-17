@@ -12,7 +12,7 @@ a
 
 <p align="center">
 <p align="center">
-   <a href="https://github.com/PURHSHOTTAM/TEAM-LIBRARIAN"><img src="https://telegra.ph/file/817de66b0b0b8e5b66a1c.png" alt="TEAM-LIBRARIAN" width=400px></a>
+   <a href="https://github.com/PURHSHOTTAM/TEAM-LIBRARIAN"><img src="https://telegra.ph/file/2957fd1d14717b7b7b76d.png" alt="TEAM-LIBRARIAN" width=400px></a>
    <br>
    <br>
 </p>
