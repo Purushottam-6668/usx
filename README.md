@@ -56,7 +56,7 @@ The easiest way to deploy this Bot
 * Google Drive [API Keys](https://console.developers.google.com/)
 * MongoDB [Database URL](https://cloud.mongodb.com/)
 ## How To Deploy 
-* With Heroku:
+* With Heroku:<b>Just Click On Image Given Below<b>
 <p align="center">
    <a href = "https://heroku.com/deploy?template=https://github.com/PURHSHOTTAM/TEAM-LIBRARIAN-PACK"><img src="https://telegra.ph/file/d6f19e66ea24527a25673.png" alt="Press to Takeoff" width="490px"></a>
 </p>
