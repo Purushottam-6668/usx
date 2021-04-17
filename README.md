@@ -6,13 +6,13 @@ These Userbot is specially Maded  For Team Admin + owners Of Librarian <b>
 
 [📚Team Librarian™️](https://t.me/Team_Librarian)
 a
-<h2 align="center"><b>Owner: <a href="https://telegram.dog/Team_Librarian">⎠⎠Team Librarian⎠⎠ ░</b></h2>
+<h2 align="center"><b>Owner: <a href="https://telegram.dog/Team_Librarian">░ ⎠⎠Team Librarian⎠⎠ ░</b></h2>
 
 <br>
 
 <p align="center">
 <p align="center">
-   <a href="https://github.com/PURHSHOTTAM/TEAM-LIBRARIAN"><img src="https://giphy.com/gifs/BuZykpyfhQRaSLl6DV.gif" alt="TEAM-LIBRARIAN" width=400px></a>
+   <a href="https://github.com/PURHSHOTTAM/TEAM-LIBRARIAN"><img src="https://telegra.ph/file/817de66b0b0b8e5b66a1c.png" alt="TEAM-LIBRARIAN" width=400px></a>
    <br>
    <br>
 </p>
