@@ -188,7 +188,7 @@ Nice To Meet You !, I'm  <b>{bot_.fname}</b> A Bot.
 My Master is : {owner_.flname}</b>
 """
             if Config.BOT_FORWARDS:
-                start_msg += "<b>\n📌 NOTE:</b>\nHey <b>{from_user.fname}<b> ,You can 📨 <b>Send Message To My Respected Master💝 </b> Press The Buttons To Contact My Sweet<b>Master.</b>"
+                start_msg += "<b>\n📌 NOTE:</b>\nHey<b> ,You can 📨 <b>Send Message To My Respected Master💝 </b> Press The Buttons To Contact My Sweet<b>Master.</b>"
             contact_url = (
                 f"https://t.me/{owner_.uname}"
                 if owner_.uname
