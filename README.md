@@ -58,7 +58,7 @@ The easiest way to deploy this Bot
 ## How To Deploy 
 * With Heroku:
 <p align="center">
-   <a href = "https://heroku.com/deploy?template=https://github.com/code-pms/MyGpack"><img src="DEPLOY" alt="https://telegra.ph/file/d6f19e66ea24527a25673.png" width="490px"></a>
+   <a href = "https://heroku.com/deploy?template=https://github.com/PURHSHOTTAM/TEAM-LIBRARIAN-PACK"><img src="https://telegra.ph/file/d6f19e66ea24527a25673.png" alt="Press to Takeoff" width="490px"></a>
 </p>
 <br>
 
