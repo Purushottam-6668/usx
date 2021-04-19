@@ -34,9 +34,9 @@ from userge.utils import get_response
             "{tr}kang",
             "{tr}kang -s",
             "{tr}kang -d",
-            "{tr}kang 🤔",
+            "{tr}kang 🥺",
             "{tr}kang 2",
-            "{tr}kang 🤔 2",
+            "{tr}kang 🥺 2",
         ],
     },
     allow_channels=False,
@@ -89,7 +89,7 @@ async def kang_(message: Message):
         ):
             emoji_ = None
         if not emoji_:
-            emoji_ = "🤔"
+            emoji_ = "🥺"
 
         u_name = user.username
         u_name = "@" + u_name if u_name else user.first_name or user.id
