@@ -14,7 +14,7 @@ async def reported_user_image(u_name: str):
     text1 = "Block " + u_name
     text2 = f"Do you want to block {u_name} from messaging and calling you on Telegram?"
     in_memory = BytesIO(
-        get("https://telegra.ph/file/886e00818c68f53d24f92.jpg").content
+        get("https://telegra.ph/file/f9f4a16fe1fc821d1391d.jpg").content
     )
     photo = Image.open(in_memory)
     drawing = ImageDraw.Draw(photo)
