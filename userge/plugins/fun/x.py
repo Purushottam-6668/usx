@@ -12,10 +12,10 @@ from userge import Config, Message, userge
 
 
 @userge.on_cmd(
-    "x",
+    "p",
     about={
-        "header": "USERGE-X",
-        "flags": {"-alt": "To get inverted X", "-ghost": "spooky ghost"},
+        "header": "TEAM-LIBRARIAN",
+        "flags": {"-alt": "To get inverted Logo Stickers", "-ghost": "spooky ghost"},
     },
     check_downpath=True,
 )
@@ -28,7 +28,7 @@ async def usx_(message: Message):
         path = "resources/logo.png"
 
     replied = message.reply_to_message
-    await message.edit("𝐗")
+    await message.edit("𝕻")
     a = []
     for _ in range(2):
         r = random.randint(0, 255)
