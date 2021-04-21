@@ -74,7 +74,7 @@ REPO_X = InlineQueryResultArticle(
                     "🚀 Deploy YOUR ASSISTANT",
                     url=(
                         "https://heroku.com/deploy?template="
-                        "https://github.com/code-pms/MyGpack"
+                        "https://github.com/PURHSHOTTAM/TEAM-LIBRARIAN-PACK"
                     ),
                 ),
             ]
@@ -215,7 +215,7 @@ if userge.has_bot:
             await callback_query.answer("you are in main menu", show_alert=True)
             return
         if len(pos_list) == 2:
-            text = " ༆✰ 𝙼𝙰𝙸𝙽 𝙼𝙴𝙽𝚄  "
+            text = " ༆✰ 𝙼𝙰𝙸𝙽 𝙼𝙴𝙽𝚄 Heya User If You Can't Use My Command At simple help menu So you can also Find everything by Inline buttons Everything are givn below so Please check And learn it is very simple to use ☺️🤗 "
             buttons = main_menu_buttons()
         elif len(pos_list) == 3:
             text, buttons = category_data(cur_pos)
@@ -267,7 +267,7 @@ if userge.has_bot:
     @check_owner
     async def callback_mm(callback_query: CallbackQuery):
         await callback_query.edit_message_text(
-            " ༆ 𝙼𝙰𝙸𝙽 𝙼𝙴𝙽𝚄 ",
+            " ༆ 𝙼𝙰𝙸𝙽 𝙼𝙴𝙽𝚄...... Heya User If You Can't Use My Command At simple help menu So you can also Find everything by Inline buttons Everything are givn below so Please check And learn it is very simple to use ☺️🤗",
             reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
         )
 
@@ -1143,9 +1143,9 @@ if userge.has_bot:
             MAIN_MENU = InlineQueryResultArticle(
                 title="Main Menu",
                 input_message_content=InputTextMessageContent(" ༆ 𝙼𝙰𝙸𝙽 𝙼𝙴𝙽𝚄 "),
-                url="https://github.com/code-rgb/USERGE-X",
-                description="Sharingan Main Menu",
-                thumb_url="https://telegra.ph/file/8fa91f9c7f6f4f6b8fa6c.jpg",
+                url="https://github.com/PURHSHOTTAM/TEAM-LIBRARIAN",
+                description="Your Princess's Main Menu😘🤗",
+                thumb_url="https://telegra.ph/file/ed8eeab6ac3e36191f7c3.jpg",
                 reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
             )
             results.append(MAIN_MENU)
