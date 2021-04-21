@@ -58,7 +58,9 @@ _CATEGORY = {
 SAVED_SETTINGS = get_collection("CONFIGS")
 REPO_X = InlineQueryResultArticle(
     title="Repo",
-    input_message_content=InputTextMessageContent("**Here's how to setup TEAM_LIB-UB** "),
+    input_message_content=InputTextMessageContent(
+        "**Here's how to setup TEAM_LIB-UB** "
+    ),
     url="https://github.com/PURHSHOTTAM/TEAM-LIBRARIAN",
     description="Setup Your Own",
     thumb_url="https://telegra.ph/file/357129f2674dd90b9a7e1.jpg",
