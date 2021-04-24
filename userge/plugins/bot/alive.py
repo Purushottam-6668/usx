@@ -253,10 +253,16 @@ class Bot_Alive:
     @staticmethod
     def alive_buttons() -> InlineKeyboardMarkup:
         buttons = [
+           [
+                InlineKeyboardButton(text="「❀Librarian Official❀」", url="t.me/Librarian_official"),
+            ], 
             [
                 InlineKeyboardButton(text="🔧  SETTINGS", callback_data="settings_btn"),
                 InlineKeyboardButton(text="😁 SAURCE", url=Config.UPSTREAM_REPO),
-            ]
+            ],
+            [
+                InlineKeyboardButton(text="ghjjjj",url="t.me/librarian_official"),
+            ],
         ]
         return InlineKeyboardMarkup(buttons)
 
