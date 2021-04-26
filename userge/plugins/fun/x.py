@@ -14,8 +14,8 @@ from userge import Config, Message, userge
 @userge.on_cmd(
     "p",
     about={
-        "header": "TEAM-LIBRARIAN",
-        "flags": {"-alt": "To get inverted Logo Stickers", "-ghost": "spooky ghost"},
+        "header": "white-Tiger",
+        "flags": {"-alt": "To get inverted Lib Logo", "-ghost": "Dark Princess png", "-tiger": "show your tiger", "-btiger": "tiger with butterfly", "-e1": "It seems like your gf's beautiful eye😍", "-e2": "It is killer eyes👌", },
     },
     check_downpath=True,
 )
@@ -24,11 +24,19 @@ async def usx_(message: Message):
         path = "resources/logo_alt.png"
     elif "-ghost" in message.flags:
         path = "resources/ghosts.png"
+    elif "-tiger" in message.flags:
+        path = "resources/tiger.png"
+    elif "-btiger" in message.flags:
+        path = "resources/c_eye_1.png"
+    elif "e1" in message.flags:
+        path = "resources/b_eye_1.png"
+    elif "-e2" in message.flags:
+        path = "resources/b_eye_2.png"
     else:
         path = "resources/logo.png"
 
     replied = message.reply_to_message
-    await message.edit("𝕻")
+    await message.edit("🤪")
     a = []
     for _ in range(2):
         r = random.randint(0, 255)
