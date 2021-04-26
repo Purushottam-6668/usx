@@ -215,7 +215,7 @@ if userge.has_bot:
             await callback_query.answer("you are in main menu", show_alert=True)
             return
         if len(pos_list) == 2:
-            text = " ༆✰ 𝙼𝙰𝙸𝙽 𝙼𝙴𝙽𝚄 Heya User If You Can't Use My Command At simple help menu So you can also Find everything by Inline buttons Everything are givn below so Please check And learn it is very simple to use ☺️🤗 "
+            text = "[🎛 𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔🎛](https://telegra.ph/file/29bbbae5dec999fa986a0.png) Hᴇʏᴀ Usᴇʀ Yᴏᴜ Cᴀɴ Eᴀsɪʟʏ Usᴇ ᴍᴇ ʙʏ ᴛᴡᴏ ᴡᴀʏs 1sᴛ ʙʏ Lɪsᴛ ᴍᴇɴᴜ Aɴᴅ 2ɴᴅ Bʏ Iɴʟɪɴᴇ Bᴜᴛᴛᴏɴs ʟɪᴋᴇ ᴛʜᴀᴛ 👇.sᴏ Jᴜsᴛ sᴇᴀʀᴄʜ sᴇᴄᴛɪᴏɴ ᴡɪsᴇ ᴀɴᴅ ɢᴇᴛ ɪɴꜰᴏ ᴀʙᴏᴜᴛ ᴍʏ ᴀʟʟ ᴍᴏᴅᴜʟᴇs ᴀɴᴅ ʜᴏᴡ ɪᴛ ᴡᴏʀᴋs ᴀɴᴅ ᴇɴᴊᴏʏ 😻"
             buttons = main_menu_buttons()
         elif len(pos_list) == 3:
             text, buttons = category_data(cur_pos)
@@ -267,7 +267,7 @@ if userge.has_bot:
     @check_owner
     async def callback_mm(callback_query: CallbackQuery):
         await callback_query.edit_message_text(
-            " ༆ 𝙼𝙰𝙸𝙽 𝙼𝙴𝙽𝚄...... Heya User If You Can't Use My Command At simple help menu So you can also Find everything by Inline buttons Everything are givn below so Please check And learn it is very simple to use ☺️🤗",
+            "[🎛 𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔🎛](https://telegra.ph/file/29bbbae5dec999fa986a0.png) Hᴇʏᴀ Usᴇʀ Yᴏᴜ Cᴀɴ Eᴀsɪʟʏ Usᴇ ᴍᴇ ʙʏ ᴛᴡᴏ ᴡᴀʏs 1sᴛ ʙʏ Lɪsᴛ ᴍᴇɴᴜ Aɴᴅ 2ɴᴅ Bʏ Iɴʟɪɴᴇ Bᴜᴛᴛᴏɴs ʟɪᴋᴇ ᴛʜᴀᴛ 👇.sᴏ Jᴜsᴛ sᴇᴀʀᴄʜ sᴇᴄᴛɪᴏɴ ᴡɪsᴇ ᴀɴᴅ ɢᴇᴛ ɪɴꜰᴏ ᴀʙᴏᴜᴛ ᴍʏ ᴀʟʟ ᴍᴏᴅᴜʟᴇs ᴀɴᴅ ʜᴏᴡ ɪᴛ ᴡᴏʀᴋs ᴀɴᴅ ᴇɴᴊᴏʏ",
             reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
         )
 
@@ -359,7 +359,7 @@ if userge.has_bot:
                 )
             )
             if len(cur_pos.split("|")) > 2:
-                tmp_btns.append(InlineKeyboardButton("🖥 Main Menu", callback_data="mm"))
+                tmp_btns.append(InlineKeyboardButton("🖥 𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔", callback_data="mm"))
                 tmp_btns.append(
                     InlineKeyboardButton(
                         "🔄 Refresh", callback_data=f"refresh({cur_pos})".encode()
@@ -369,7 +369,7 @@ if userge.has_bot:
             cur_clnt = "👤 USER" if Config.USE_USER_FOR_CLIENT_CHECKS else "⚙️ BOT"
             tmp_btns.append(
                 InlineKeyboardButton(
-                    f"🔩 Client for Checks and Sudos : {cur_clnt}",
+                    f"🔩 𝐁𝐎𝐓 𝐌𝐎𝐃𝐄 𝐀𝐍𝐃 𝐔𝐒𝐄𝐑 𝐌𝐎𝐃𝐄 : {cur_clnt}",
                     callback_data="chgclnt",
                 )
             )
@@ -1141,11 +1141,11 @@ if userge.has_bot:
                     )
 
             MAIN_MENU = InlineQueryResultArticle(
-                title="Main Menu",
-                input_message_content=InputTextMessageContent(" ༆ 𝙼𝙰𝙸𝙽 𝙼𝙴𝙽𝚄 "),
+                title="𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔",
+                input_message_content=InputTextMessageContent("[🎛 𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔🎛](https://telegra.ph/file/29bbbae5dec999fa986a0.png) Hᴇʏᴀ Usᴇʀ Yᴏᴜ Cᴀɴ Eᴀsɪʟʏ Usᴇ ᴍᴇ ʙʏ ᴛᴡᴏ ᴡᴀʏs 1sᴛ ʙʏ Lɪsᴛ ᴍᴇɴᴜ Aɴᴅ 2ɴᴅ Bʏ Iɴʟɪɴᴇ Bᴜᴛᴛᴏɴs ʟɪᴋᴇ ᴛʜᴀᴛ 👇.sᴏ Jᴜsᴛ sᴇᴀʀᴄʜ sᴇᴄᴛɪᴏɴ ᴡɪsᴇ ᴀɴᴅ ɢᴇᴛ ɪɴꜰᴏ ᴀʙᴏᴜᴛ ᴍʏ ᴀʟʟ ᴍᴏᴅᴜʟᴇs ᴀɴᴅ ʜᴏᴡ ɪᴛ ᴡᴏʀᴋs ᴀɴᴅ ᴇɴᴊᴏʏ 😻"),
                 url="https://github.com/PURHSHOTTAM/TEAM-LIBRARIAN",
                 description="Your Princess's Main Menu😘🤗",
-                thumb_url="https://telegra.ph/file/ed8eeab6ac3e36191f7c3.jpg",
+                thumb_url="https://telegra.ph/file/4554ac64956de3b56c41a.png",
                 reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
             )
             results.append(MAIN_MENU)
