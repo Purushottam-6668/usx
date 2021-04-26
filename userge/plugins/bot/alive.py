@@ -42,7 +42,11 @@ async def _init() -> None:
                 LOGGER.debug(b_rr)
 
 
-@userge.on_cmd("alive", about={"header": "It Check Your Bots' Uptime and versions"}, allow_channels=False)
+@userge.on_cmd(
+    "alive",
+    about={"header": "It Check Your Bots' Uptime and versions"},
+    allow_channels=False,
+)
 async def alive_inline(message: Message):
     try:
         if message.client.is_bot:
@@ -262,7 +266,9 @@ class Bot_Alive:
                 InlineKeyboardButton(text="「❀Owner❀」", url=Config.UPSTREAM_REPO),
             ],
             [
-                InlineKeyboardButton(text="「❀Team Librarian❀」", url="t.me/Team_librarian"),
+                InlineKeyboardButton(
+                    text="「❀Team Librarian❀」", url="t.me/Team_librarian"
+                ),
             ],
         ]
         return InlineKeyboardMarkup(buttons)
