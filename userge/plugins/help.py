@@ -1142,7 +1142,9 @@ if userge.has_bot:
 
             MAIN_MENU = InlineQueryResultArticle(
                 title="𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔",
-                input_message_content=InputTextMessageContent("[🎛 𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔🎛](https://telegra.ph/file/29bbbae5dec999fa986a0.png) Hᴇʏᴀ Usᴇʀ Yᴏᴜ Cᴀɴ Eᴀsɪʟʏ Usᴇ ᴍᴇ ʙʏ ᴛᴡᴏ ᴡᴀʏs 1sᴛ ʙʏ Lɪsᴛ ᴍᴇɴᴜ Aɴᴅ 2ɴᴅ Bʏ Iɴʟɪɴᴇ Bᴜᴛᴛᴏɴs ʟɪᴋᴇ ᴛʜᴀᴛ 👇.sᴏ Jᴜsᴛ sᴇᴀʀᴄʜ sᴇᴄᴛɪᴏɴ ᴡɪsᴇ ᴀɴᴅ ɢᴇᴛ ɪɴꜰᴏ ᴀʙᴏᴜᴛ ᴍʏ ᴀʟʟ ᴍᴏᴅᴜʟᴇs ᴀɴᴅ ʜᴏᴡ ɪᴛ ᴡᴏʀᴋs ᴀɴᴅ ᴇɴᴊᴏʏ 😻"),
+                input_message_content=InputTextMessageContent(
+                    "[🎛 𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔🎛](https://telegra.ph/file/29bbbae5dec999fa986a0.png) Hᴇʏᴀ Usᴇʀ Yᴏᴜ Cᴀɴ Eᴀsɪʟʏ Usᴇ ᴍᴇ ʙʏ ᴛᴡᴏ ᴡᴀʏs 1sᴛ ʙʏ Lɪsᴛ ᴍᴇɴᴜ Aɴᴅ 2ɴᴅ Bʏ Iɴʟɪɴᴇ Bᴜᴛᴛᴏɴs ʟɪᴋᴇ ᴛʜᴀᴛ 👇.sᴏ Jᴜsᴛ sᴇᴀʀᴄʜ sᴇᴄᴛɪᴏɴ ᴡɪsᴇ ᴀɴᴅ ɢᴇᴛ ɪɴꜰᴏ ᴀʙᴏᴜᴛ ᴍʏ ᴀʟʟ ᴍᴏᴅᴜʟᴇs ᴀɴᴅ ʜᴏᴡ ɪᴛ ᴡᴏʀᴋs ᴀɴᴅ ᴇɴᴊᴏʏ 😻"
+                ),
                 url="https://github.com/PURHSHOTTAM/TEAM-LIBRARIAN",
                 description="Your Princess's Main Menu😘🤗",
                 thumb_url="https://telegra.ph/file/4554ac64956de3b56c41a.png",
