@@ -2,16 +2,16 @@
 
 # By @Krishna_Singhal
 
-import os
-import wget
-import pylast
 import asyncio
-
+import os
 from typing import Optional
 from urllib.parse import unquote
 
-from pyrogram.errors import ChatWriteForbidden, ChannelPrivate, ChatIdInvalid
-from userge import userge, Message, Config, pool, get_collection
+import pylast
+import wget
+from pyrogram.errors import ChannelPrivate, ChatIdInvalid, ChatWriteForbidden
+
+from userge import Config, Message, get_collection, pool, userge
 from userge.utils import time_formatter
 
 API_KEY = os.environ.get("FM_API")
@@ -28,13 +28,14 @@ NOW_PLAYING = [False, None]
 
 async def _init():
     global NOW_PLAYING  # pylint: disable=global-statement
-    k = await LASTFM_DB.find_one({'_id': "LASTFM"})
+    k = await LASTFM_DB.find_one({"_id": "LASTFM"})
     if k:
-        NOW_PLAYING[0] = bool(k['data'])
+        NOW_PLAYING[0] = bool(k["data"])
 
 
 def check_creds(func):
-    """ decorator for checking creds """
+    """decorator for checking creds"""
+
     async def checker(msg: Message):
         if _check_creds():
             await func(msg)
@@ -43,32 +44,35 @@ def check_creds(func):
                 "`This plugins needs environmental variables,"
                 " For more info see` "
                 "[this post](https://t.me/UnofficialPluginsHelp/123).",
-                disable_web_page_preview=True
+                disable_web_page_preview=True,
             )
+
     return checker
 
 
 @check_creds
-@userge.on_cmd("lastfm", about={
-    'header': "see current playing song and "
-              "allow bot to send regular updates of song.",
-    'flags': {'-on': "allow bot to send regular updation of songs",
-              '-off': "disallow bot to send updates"},
-    'usage': "{tr}lastfm\n{tr}lastfm [flags]"})
+@userge.on_cmd(
+    "lastfm",
+    about={
+        "header": "see current playing song and "
+        "allow bot to send regular updates of song.",
+        "flags": {
+            "-on": "allow bot to send regular updation of songs",
+            "-off": "disallow bot to send updates",
+        },
+        "usage": "{tr}lastfm\n{tr}lastfm [flags]",
+    },
+)
 async def _lastfm(msg: Message):
-    """ see current playing song """
+    """see current playing song"""
     global NOW_PLAYING  # pylint: disable=global-statement
-    if msg.flags and '-on' in msg.flags:
+    if msg.flags and "-on" in msg.flags:
         NOW_PLAYING[0] = True
-        await LASTFM_DB.update_one(
-            {'_id': "LASTFM"}, {"$set": {'data': True}}
-        )
+        await LASTFM_DB.update_one({"_id": "LASTFM"}, {"$set": {"data": True}})
         await msg.edit("`Auto updates Started.`")
-    elif msg.flags and '-off' in msg.flags:
+    elif msg.flags and "-off" in msg.flags:
         NOW_PLAYING[0] = False
-        await LASTFM_DB.update_one(
-            {'_id': "LASTFM"}, {"$set": {'data': False}}
-        )
+        await LASTFM_DB.update_one({"_id": "LASTFM"}, {"$set": {"data": False}})
         await msg.edit("`Auto updates Stopped.`")
     else:
         track = await LastFm(msg).now_playing()
@@ -85,36 +89,41 @@ async def _lastfm(msg: Message):
 
 
 @check_creds
-@userge.on_cmd("getuser", about={
-    'header': "Get user of lastfm.",
-    'usage': "{tr}getuser\n{tr}getuser [username]"})
+@userge.on_cmd(
+    "getuser",
+    about={
+        "header": "Get user of lastfm.",
+        "usage": "{tr}getuser\n{tr}getuser [username]",
+    },
+)
 async def get_user(msg: Message):
-    """ get last.fm user """
+    """get last.fm user"""
     await msg.edit("`checking user...`")
     if msg.input_str:
         user = LastFm(msg).get_user(msg.input_str)
     else:
         user = LastFm(msg).get_user()
 
-    out = f'''
+    out = f"""
 __Name:__ [{user.get_name()}]({unquote(user.get_url())})
 __Country:__ `{user.get_country()}`
-'''
+"""
     if user.get_loved_tracks():
-        out += '__GetLovedTracks:__\n'
+        out += "__GetLovedTracks:__\n"
         out += "\n".join(
             [
                 f"    `{i}. {a[0]} 😘`"
-                for i, a in enumerate(user.get_loved_tracks(15), start=1)]
+                for i, a in enumerate(user.get_loved_tracks(15), start=1)
+            ]
         )
     else:
-        out += '__GetLovedTracks:__ `No tracks found.`\n'
+        out += "__GetLovedTracks:__ `No tracks found.`\n"
 
     if bool(user.get_now_playing()):
-        out += '__NowPlaying:__ `True`\n'
-        out += f'    __● SongName:__ `{user.get_now_playing()}`'
+        out += "__NowPlaying:__ `True`\n"
+        out += f"    __● SongName:__ `{user.get_now_playing()}`"
     else:
-        out += '__NowPlaying:__ `False`'
+        out += "__NowPlaying:__ `False`"
 
     if user.get_image():
         path = os.path.join(Config.DOWN_PATH, f"{user.get_name()}.png")
@@ -125,54 +134,66 @@ __Country:__ `{user.get_country()}`
 
     await asyncio.gather(
         msg.delete(),
-        msg.client.send_photo(
-            chat_id=msg.chat.id,
-            photo=path,
-            caption=out
-        )
+        msg.client.send_photo(chat_id=msg.chat.id, photo=path, caption=out),
     )
 
 
 @check_creds
-@userge.on_cmd("lovesong", about={
-    'header': "Love any track.",
-    'description': "Specify which track you wanna love\n"
-                   "if track will not specify then it will "
-                   "take current listening track, if any.",
-    'usage': "{tr}lovesong (if listening any song)\n{tr}lovesong Artist - Title"})
+@userge.on_cmd(
+    "lovesong",
+    about={
+        "header": "Love any track.",
+        "description": "Specify which track you wanna love\n"
+        "if track will not specify then it will "
+        "take current listening track, if any.",
+        "usage": "{tr}lovesong (if listening any song)\n{tr}lovesong Artist - Title",
+    },
+)
 async def love_track(msg: Message):
-    """ love any last.fm song """
+    """love any last.fm song"""
     await LastFm(msg).love()
 
 
 @check_creds
-@userge.on_cmd("unlove", about={
-    'header': "UnLove any track.",
-    'description': "Specify which track you wanna Unlove\n"
-                   "if track will not specify then it will "
-                   "take current listening track, if any.",
-    'usage': "{tr}unlove (if listening any song)\n{tr}unlove Artist - Title"})
+@userge.on_cmd(
+    "unlove",
+    about={
+        "header": "UnLove any track.",
+        "description": "Specify which track you wanna Unlove\n"
+        "if track will not specify then it will "
+        "take current listening track, if any.",
+        "usage": "{tr}unlove (if listening any song)\n{tr}unlove Artist - Title",
+    },
+)
 async def unlove_track(msg: Message):
-    """ remove loved song from loved list """
+    """remove loved song from loved list"""
     await LastFm(msg).rmlove()
 
 
 @check_creds
-@userge.on_cmd("getloved", about={
-    'header': "Get list of all loved tracks.",
-    'usage': "{tr}getloved\n{tr}getloved 20"})
+@userge.on_cmd(
+    "getloved",
+    about={
+        "header": "Get list of all loved tracks.",
+        "usage": "{tr}getloved\n{tr}getloved 20",
+    },
+)
 async def get_loved(msg: Message):
-    """ get list of loved song """
+    """get list of loved song"""
     await LastFm(msg).get_loved()
 
 
 @check_creds
-@userge.on_cmd("getrack", about={
-    'header': "Get track of lastfm.",
-    'usage': "{tr}getrack\n{tr} getrack Artist - Title"})
+@userge.on_cmd(
+    "getrack",
+    about={
+        "header": "Get track of lastfm.",
+        "usage": "{tr}getrack\n{tr} getrack Artist - Title",
+    },
+)
 async def get_track(msg: Message):
-    """ get pylast.Track info """
-    await msg.edit('`getting info...`')
+    """get pylast.Track info"""
+    await msg.edit("`getting info...`")
     track = await LastFm(msg).get_track()
     if not track:
         return await msg.edit("Please see `.help getrack`")
@@ -184,17 +205,16 @@ async def get_track(msg: Message):
 
 @check_creds
 @userge.on_cmd(
-    "getrecent", about={
-        'header': "Get recent tracks of Users or Myself.",
-        'flags': {'-l': "specify limit"},
-        'usage': "{tr}getrecent\n{tr}getrecent -l5",
-        'example': [
-            "{tr}getrecent", "{tr}getrecent -l5", "{tr}getrecent Krishna_69"
-        ]
-    }
+    "getrecent",
+    about={
+        "header": "Get recent tracks of Users or Myself.",
+        "flags": {"-l": "specify limit"},
+        "usage": "{tr}getrecent\n{tr}getrecent -l5",
+        "example": ["{tr}getrecent", "{tr}getrecent -l5", "{tr}getrecent Krishna_69"],
+    },
 )
 async def get_last_played(msg: Message):
-    """ get list of played song of any user """
+    """get list of played song of any user"""
     await LastFm(msg).get_last_played()
 
 
@@ -206,7 +226,7 @@ async def lastfm_worker():
         api_key=API_KEY,
         api_secret=API_SECRET,
         username=USERNAME,
-        password_hash=PASSWORD
+        password_hash=PASSWORD,
     ).get_user(USERNAME)
     while NOW_PLAYING[0] is True and await _get_now_playing(user) is not None:
         song = await _get_now_playing(user)
@@ -239,7 +259,7 @@ async def lastfm_worker():
 
 
 def _check_creds() -> bool:
-    """ check creds """
+    """check creds"""
     if API_KEY and API_SECRET and USERNAME and PASSWORD:
         return True
     return False
@@ -249,14 +269,14 @@ def get_track_info(track: pylast.Track) -> Optional[str]:
     try:
         duration = time_formatter(int(track.get_duration()) / 1000)
         _tags = track.get_tags()
-        tags = " ".join([f'`{i}`' for i in _tags]) if len(_tags) > 0 else '`None`'
-        out = f'''__LastFm's__ [{track.get_correction()}]({unquote(track.get_url())})
+        tags = " ".join([f"`{i}`" for i in _tags]) if len(_tags) > 0 else "`None`"
+        out = f"""__LastFm's__ [{track.get_correction()}]({unquote(track.get_url())})
 
 __Duration:__ `{duration if duration else None}`
 __Is_Loved:__ `{bool(track.get_userloved())}`
 __Is_Streamable:__ `{bool(track.is_streamable())}`
 __Tags:__ {tags}
-'''
+"""
     except pylast.WSError:
         return None
     else:
@@ -272,7 +292,7 @@ def _get_now_playing(user: pylast.User) -> Optional[pylast.Track]:
 
 
 class LastFm:
-    """ custom class for last.fm 😉 """
+    """custom class for last.fm 😉"""
 
     def __init__(self, msg: Message) -> None:
         self.msg = msg
@@ -283,7 +303,7 @@ class LastFm:
             api_key=API_KEY,
             api_secret=API_SECRET,
             username=USERNAME,
-            password_hash=PASSWORD
+            password_hash=PASSWORD,
         )
 
     @staticmethod
@@ -338,8 +358,8 @@ class LastFm:
         await self.msg.err("No loved tracks found.")
 
     async def get_track(self) -> Optional[pylast.Track]:
-        if self.msg.input_str and '-' in self.msg.input_str:
-            artist, title = self.msg.input_str.split('-', maxsplit=1)
+        if self.msg.input_str and "-" in self.msg.input_str:
+            artist, title = self.msg.input_str.split("-", maxsplit=1)
             artist = artist.strip()
             title = title.strip()
             track = pylast.Track(artist, title, self._network())
@@ -364,7 +384,7 @@ class LastFm:
 
     async def get_last_played(self) -> None:
         await self.msg.edit("`getting tracks...`")
-        limit = int(self.msg.flags.get('-l', 10))
+        limit = int(self.msg.flags.get("-l", 10))
         if self.msg.filtered_input_str:
             user = self.get_user(self.msg.filtered_input_str)
         else:
