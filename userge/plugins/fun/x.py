@@ -15,7 +15,14 @@ from userge import Config, Message, userge
     "p",
     about={
         "header": "white-Tiger",
-        "flags": {"-alt": "To get inverted Lib Logo", "-ghost": "Dark Princess png", "-tiger": "show your tiger", "-btiger": "tiger with butterfly", "-e1": "It seems like your gf's beautiful eye😍", "-e2": "It is killer eyes👌", },
+        "flags": {
+            "-alt": "To get inverted Lib Logo",
+            "-ghost": "Dark Princess png",
+            "-tiger": "show your tiger",
+            "-btiger": "tiger with butterfly",
+            "-e1": "It seems like your gf's beautiful eye😍",
+            "-e2": "It is killer eyes👌",
+        },
     },
     check_downpath=True,
 )
