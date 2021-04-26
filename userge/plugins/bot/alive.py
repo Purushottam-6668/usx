@@ -42,7 +42,7 @@ async def _init() -> None:
                 LOGGER.debug(b_rr)
 
 
-@userge.on_cmd("alive", about={"header": "Just For Fun"}, allow_channels=False)
+@userge.on_cmd("alive", about={"header": "It Check Your Bots' Uptime and versions"}, allow_channels=False)
 async def alive_inline(message: Message):
     try:
         if message.client.is_bot:
@@ -94,9 +94,9 @@ async def send_alive_message(message: Message) -> None:
         reply_markup = None
         file_id = _USER_CACHED_MEDIA
         caption += (
-            f"\n⚡️  <a href={Config.UPSTEAM_REPO}><b>😁SAURCE</b></a>"
+            f"\n⚡️  <a href={Config.UPSTEAM_REPO}><b>Source🙉</b></a>"
             "    <code>|</code>    "
-            "💫 <a href='https://t.me/Team_Librarian'><b>📚TEAM LIBRARIAN™️</b></a>"
+            "💫 <a href='https://t.me/Team_Librarian'><b>:)</b></a>"
         )
     if not Config.ALIVE_MEDIA:
         await client.send_photo(
@@ -179,8 +179,8 @@ if userge.has_bot:
                 await asyncio.sleep(e.x)
             except BadRequest:
                 pass
-            ping = "𝗣𝗶𝗻𝗴: 😁🙄🙊💫 {} sec\n"
-        alive_s = "➕ 𝗘𝘅𝘁𝗿𝗮 𝗣𝗹𝘂𝗴𝗶𝗻𝘀 : {}\n".format(
+            ping = "<b> Ping: 😁 {} sec\n </b>"
+        alive_s = "➕ Extra Plugins : {}\n".format(
             _parse_arg(Config.LOAD_UNOFFICIAL_PLUGINS)
         )
         alive_s += f"👥 𝗦𝘂𝗱𝗼 : {_parse_arg(Config.SUDO_ENABLED)}\n"
@@ -230,13 +230,12 @@ class Bot_Alive:
     def alive_info(me):
         u_name = " ".join([me.first_name, me.last_name or ""])
         alive_info = f"""
-­<a href="https://telegram.dog/Team_Librarian"><b>༆
-➪ You Can't Go Back And Change The Beginning<b>
-<b>➪ But You Can Start Where You Are Change The Ending ¯\_(ツ)_/¯</a> </b>
+­<a href="https://t.me/Librarian_Official/1468">𝐓𝐢𝐠𝐞𝐫 𝐈𝐬 𝐇𝐮𝐧𝐭𝐢𝐧𝐠 𝐈𝐧 𝐓𝐡𝐞 𝐅𝐨𝐫𝐞𝐬𝐭¯\_(ツ)_/¯</a> </b>
 
-  🐍   <b>Python      :</b>    <code>v{versions.__python_version__}</code>
-  🔥   <b>Pyrogram :</b>    <code>v{versions.__pyro_version__}</code>
-  🧬   <b>𝑿                :</b>    <code>v{get_version()}</code>
+  𓆙  <b>Python      :</b>    <code>v{versions.__python_version__}</code>
+  𓅓  <b>Pyrogram :</b>    <code>v{versions.__pyro_version__}</code>
+  ༆  <b> 𝐓𝐈𝐆𝐄𝐑'𝐒
+  :</b>    <code>v{get_version()}</code>
   👤   <b>User          :</b>    <code>{u_name}</code>
   <b>{Bot_Alive._get_mode()}</b>        <code>|</code>    🕔  <b>{userge.uptime}</b>
 """
@@ -259,11 +258,11 @@ class Bot_Alive:
                 ),
             ],
             [
-                InlineKeyboardButton(text="🔧  SETTINGS", callback_data="settings_btn"),
-                InlineKeyboardButton(text="😁 SAURCE", url=Config.UPSTREAM_REPO),
+                InlineKeyboardButton(text="「❀Setting❀」", callback_data="settings_btn"),
+                InlineKeyboardButton(text="「❀Owner❀」", url=Config.UPSTREAM_REPO),
             ],
             [
-                InlineKeyboardButton(text="ghjjjj", url="t.me/librarian_official"),
+                InlineKeyboardButton(text="「❀Team Librarian❀」", url="t.me/Team_librarian"),
             ],
         ]
         return InlineKeyboardMarkup(buttons)
